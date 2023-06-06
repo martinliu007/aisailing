@@ -5,6 +5,7 @@ from user_info.serializers import UserDescSerializer
 
 # 父类变成了 ModelSerializer
 class ArticleListSerializer(serializers.ModelSerializer):
+    # 超链接
     articleurl = serializers.HyperlinkedIdentityField(view_name="app:detail")
 
     author = UserDescSerializer(read_only=True)
