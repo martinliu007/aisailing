@@ -10,9 +10,10 @@ class ArticleListSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'title',
-            'body',
+            # 'body',
             'articleurl',
             'created',
+            'author'
         ]
         read_only_fields = ['author']
 
