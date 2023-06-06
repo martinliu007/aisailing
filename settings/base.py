@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'app',
+    'user_info',
 ]
 
 MIDDLEWARE = [
@@ -74,18 +75,6 @@ WSGI_APPLICATION = 'aisailing.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'aisailing',
-        'HOST': '192.168.152.70',
-        'PORT': 3306,
-        'USER': 'aisailing_rw',
-        'PASSWORD': 'Udag_dy78',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

@@ -3,10 +3,19 @@
 import os
 import sys
 
+env = os.environ.get('ENV')  # ENV环境变量
+if env == "prod":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.prod")
+elif env == "stage":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.stage")
+elif env == "dev":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.dev")
+else:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.local")
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aisailing.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

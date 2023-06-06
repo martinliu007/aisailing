@@ -1,10 +1,13 @@
 from rest_framework import serializers
 from app.models import App
+from user_info.serializers import UserDescSerializer
+
 
 # 父类变成了 ModelSerializer
 class ArticleListSerializer(serializers.ModelSerializer):
     articleurl = serializers.HyperlinkedIdentityField(view_name="app:detail")
 
+    author = UserDescSerializer(read_only=True)
     class Meta:
         model = App
         fields = [
@@ -15,7 +18,6 @@ class ArticleListSerializer(serializers.ModelSerializer):
             'created',
             'author'
         ]
-        read_only_fields = ['author']
 
 class ArticleDetailSerializer(serializers.ModelSerializer):
     class Meta:
