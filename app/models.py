@@ -23,5 +23,6 @@ class App(models.Model):
     class Meta:
         # 表名
         db_table = 'article'
+        ordering = ['-created']
     def __str__(self):
         return self.title
